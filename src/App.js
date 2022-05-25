@@ -12,10 +12,9 @@ export default function App() {
   useEffect(() => {
     if (dice.every((die, i) => (die.value === dice[0].value) && (die.isHeld))) {
       setTenzies(true);
-      
     }
-    
-  },[dice])
+  }, [dice])
+
 
     function allNewDice() {
       const newDice = [];
@@ -37,14 +36,19 @@ export default function App() {
   }
   
   function rollDice() {
-    setDice(prevDice => 
-      prevDice.map(die => {
-        return die.isHeld ?
-          die : 
-          generateNewDie()
+    if (tenzies) {
+      setDice(allNewDice());
+      setTenzies(false);
+    } else {
+      setDice(prevDice =>
+        prevDice.map(die => {
+          return die.isHeld ?
+            die :
+            generateNewDie()
         
-      })
+        })
       );
+    }
   }
 
   function holdDice(id) {
@@ -71,7 +75,6 @@ export default function App() {
   return (
     <div className='container centered'>
          {tenzies && <Confetti />}
-     
       <div className="board centered">
         <h1 className='title'>Tenzies</h1>
         <p className='instructions'>Roll untill all dice are the same. Click each die to freeze it at its current value between rolls.</p>
