@@ -1,13 +1,13 @@
 {
-  "files": {
-    "main.css": "/Tenzies/static/css/main.eb0e1c0b.css",
-    "main.js": "/Tenzies/static/js/main.ea87961d.js",
-    "index.html": "/Tenzies/index.html",
-    "main.eb0e1c0b.css.map": "/Tenzies/static/css/main.eb0e1c0b.css.map",
-    "main.ea87961d.js.map": "/Tenzies/static/js/main.ea87961d.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.eb0e1c0b.css",
-    "static/js/main.ea87961d.js"
-  ]
+  "main.css": "/Tenzies/static/css/main.296c1db0.chunk.css",
+  "main.js": "/Tenzies/static/js/main.5e7a3730.chunk.js",
+  "main.js.map": "/Tenzies/static/js/main.5e7a3730.chunk.js.map",
+  "static/js/1.e34f04b9.chunk.js": "/Tenzies/static/js/1.e34f04b9.chunk.js",
+  "static/js/1.e34f04b9.chunk.js.map": "/Tenzies/static/js/1.e34f04b9.chunk.js.map",
+  "runtime~main.js": "/Tenzies/static/js/runtime~main.3acee836.js",
+  "runtime~main.js.map": "/Tenzies/static/js/runtime~main.3acee836.js.map",
+  "static/css/main.296c1db0.chunk.css.map": "/Tenzies/static/css/main.296c1db0.chunk.css.map",
+  "index.html": "/Tenzies/index.html",
+  "precache-manifest.d42d2ac7a2cbe18d963d3cee5bfc50b7.js": "/Tenzies/precache-manifest.d42d2ac7a2cbe18d963d3cee5bfc50b7.js",
+  "service-worker.js": "/Tenzies/service-worker.js"
 }
