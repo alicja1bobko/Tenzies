@@ -5,3 +5,5 @@ React course by Bob Ziroll.
 
 Figma design:
 https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies?node-id=0%3A1
+
+Your High Score is saved in LocalStorage.
