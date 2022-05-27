@@ -9,5 +9,5 @@ export default function Timer(props) {
   
   
   
-  return <span>{elapsedTime.toFixed(2)}</span>
+  return <span className='timer' id='left'>{elapsedTime.toFixed(2)}</span>
 }

@@ -6,4 +6,10 @@ React course by Bob Ziroll.
 Figma design:
 https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies?node-id=0%3A1
 
-Your High Score is saved in LocalStorage.
+Added additional assignment features:
+🚀 Your High Score is saved in LocalStorage.
+🚀 CSS: dots instead of numbers on dice
+🚀 Number of rolls tracked
+🚀 Time it took to win tracked
+
+Site available on gh-pages : https://alicja1bobko.github.io/Tenzies/
