@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { useElapsedTime } from 'use-elapsed-time'
 
 export default function Timer(props) {
