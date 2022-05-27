@@ -4,16 +4,24 @@ import './style.css';
 import Die from './components/Die';
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
+import Timer from './components/Timer';
+
 
 export default function App() {
+
   const [dice, setDice] = useState(allNewDice());
   const [tenzies, setTenzies] = useState(false);
+  const [numberOfRolls, setNumberOfRolls] = useState(0);
 
+  const [key, setKey] = useState("0");
+ 
+ 
+ 
   useEffect(() => {
     if (dice.every((die, i) => (die.value === dice[0].value) && (die.isHeld))) {
       setTenzies(true);
     }
-  }, [dice])
+  }, [dice]);
 
 
     function allNewDice() {
@@ -34,21 +42,32 @@ export default function App() {
           id: nanoid()
     }
   }
+
+  function newGame() {
+      setKey(nanoid());
+      setDice(allNewDice());
+      setTenzies(false);
+      setNumberOfRolls(0);
+
+  }
   
   function rollDice() {
     if (tenzies) {
-      setDice(allNewDice());
-      setTenzies(false);
-    } else {
+      
+      if (localStorage.getItem("highScore") > numberOfRolls) localStorage.setItem("highScore", numberOfRolls);
+      newGame();
+    } else { 
+      
       setDice(prevDice =>
         prevDice.map(die => {
           return die.isHeld ?
             die :
             generateNewDie()
-        
         })
       );
+      setNumberOfRolls(prevNum => prevNum + 1);
     }
+    
   }
 
   function holdDice(id) {
@@ -74,14 +93,22 @@ export default function App() {
   
   return (
     <div className='container centered'>
-         {tenzies && <Confetti />}
+      {tenzies && <Confetti />}
+      
       <div className="board centered">
         <h1 className='title'>Tenzies</h1>
-        <p className='instructions'>Roll untill all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <p className='instructions'>Roll untill all dice are the same. Click each die to freeze it at its current <br></br>  value between rolls.</p>
+        <span className='high--score'><b>Your High Score: { localStorage.getItem("highScore")  ?  localStorage.getItem("highScore")  : "_"}  🏆</b> </span>
         <div className='dice--container'>
           {diceElements}
         </div>
         <button className='roll-dice' onClick={rollDice}>{tenzies? 'New Game' : 'Roll' }</button>
+        <div className='statistics'>
+          <span className='rolls--number'>Number of rolls: <b>{numberOfRolls} 🎲</b> </span>
+          <span className='timer' id='right'>Time:</span>
+          <span className='timer' id='left'><b><Timer key={key} isOn={!tenzies} /></b></span>
+         
+        </div>
       </div>
     </div>
   );
